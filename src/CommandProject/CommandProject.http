@@ -1,0 +1,6 @@
+@CommandProject_HostAddress = http://localhost:5219
+
+GET {{CommandProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
