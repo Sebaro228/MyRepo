@@ -12,7 +12,7 @@ namespace Domain.Models
         public string Id { get; set; }
         public AiProvider Provider { get; set; }
         public string PromptText { get; set; }
-        public string? ResponceText { get; set; }
+        public string? ResponseText { get; set; }
         public int TokenUsed { get; set; }
         public bool IsSuccessful { get; set; }
         public string? ErrorMessage { get; set; }
