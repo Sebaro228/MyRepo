@@ -8,6 +8,6 @@ namespace DLL.Repositories
 {
     public interface IRequestRepository
     {
-        Task AddAsync(Request request);
+        Task<Request> AddAsync(Request request, string apiKey);
     }
 }
