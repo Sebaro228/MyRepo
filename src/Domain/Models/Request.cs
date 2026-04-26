@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Domain.Models
 {
-    public enum AiProvider { OpenAI, Claude, TTS }
+    public enum AiProvider { OpenAI, Claude, TTS, Gemini, Groq }
     public class Request
     {
         public string Id { get; set; }

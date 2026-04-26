@@ -12,14 +12,15 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<RequestDbContext>(options =>
-    options.UseSqlServer());
+builder.Services.AddDbContext<RequestDbContext>();
 builder.Services.AddTransient<RequestRepository>();
 builder.Services.AddTransient<RequestService>();
 builder.Services.AddTransient<IConfiguration>(provider => builder.Configuration);
 builder.Services.AddHttpClient<ClaudeClient>();
 builder.Services.AddHttpClient<OpenAiClient>();
 builder.Services.AddHttpClient<TtsClient>();
+builder.Services.AddHttpClient<GeminiClient>();
+builder.Services.AddHttpClient<GroqClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

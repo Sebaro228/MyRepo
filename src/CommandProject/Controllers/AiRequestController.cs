@@ -20,7 +20,9 @@ namespace CommandProject.Controllers
             if (provider .ToLower() == "claude") request.Provider = AiProvider.Claude;
             else if (provider.ToLower() == "openai") request.Provider = AiProvider.OpenAI;
             else if (provider.ToLower() == "tts") request.Provider = AiProvider.TTS;
-            else return BadRequest("Invalid provider. Supported providers are 'Claude', 'OpenAI', and 'TTS'.");
+            else if (provider.ToLower() == "gemini") request.Provider = AiProvider.Gemini;
+            else if (provider.ToLower() == "groq") request.Provider = AiProvider.Groq;
+            else return BadRequest("Invalid provider. Supported providers are 'Claude', 'OpenAI', 'Gemini', 'TTS', and 'Groq'.");
             var result = await requestService.ProcessRequestAsync(request);
             if (!result.IsSuccessful) return BadRequest(result.ErrorMessage);
             return Ok(result);

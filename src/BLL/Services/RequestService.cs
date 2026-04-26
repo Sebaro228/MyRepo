@@ -21,6 +21,8 @@ namespace BLL.Services
         {
             string apiKey;
             if (request.Provider == AiProvider.Claude) apiKey = _config["ApiKeys:Claude"];
+            else if (request.Provider == AiProvider.Gemini) apiKey = _config["ApiKeys:Gemini"];
+            else if (request.Provider == AiProvider.Groq) apiKey = _config["ApiKeys:Groq"];
             else apiKey = _config["ApiKeys:OpenAI"];
             return await _requestRepository.AddAsync(request, apiKey);
         }
