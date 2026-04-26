@@ -1,3 +1,9 @@
+using BLL.Services;
+using DLL.AiClients;
+using DLL.Context;
+using DLL.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,7 +12,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<RequestDbContext>(options =>
+    options.UseSqlServer());
+builder.Services.AddTransient<RequestRepository>();
+builder.Services.AddTransient<RequestService>();
+builder.Services.AddTransient<IConfiguration>(provider => builder.Configuration);
+builder.Services.AddTransient<ClaudeClient>();
+builder.Services.AddTransient<OpenAiClient>();
+builder.Services.AddTransient<TtsClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
