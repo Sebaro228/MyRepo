@@ -17,9 +17,9 @@ builder.Services.AddDbContext<RequestDbContext>(options =>
 builder.Services.AddTransient<RequestRepository>();
 builder.Services.AddTransient<RequestService>();
 builder.Services.AddTransient<IConfiguration>(provider => builder.Configuration);
-builder.Services.AddTransient<ClaudeClient>();
-builder.Services.AddTransient<OpenAiClient>();
-builder.Services.AddTransient<TtsClient>();
+builder.Services.AddHttpClient<ClaudeClient>();
+builder.Services.AddHttpClient<OpenAiClient>();
+builder.Services.AddHttpClient<TtsClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();
 app.UseAuthorization();
 
 app.MapControllers();

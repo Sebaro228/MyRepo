@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="BLL/BLL.csproj" Id="3ee0d96f-c48b-449d-913e-55da345d02f2" />
   <Project Path="CommandProject/CommandProject.csproj" />
   <Project Path="DLL/DLL.csproj" Id="3b79d6c0-9c93-4260-8ea8-6ca884406f50" />
   <Project Path="Domain/Domain.csproj" Id="dbd68cb5-0539-4fad-9486-c93a4492e0c3" />
